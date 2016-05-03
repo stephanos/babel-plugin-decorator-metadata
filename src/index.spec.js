@@ -39,6 +39,12 @@ describe('applying transformer to', () => {
         testFixture('class-decorator-with-param');
       });
     });
+
+    describe('with multiple decorator parameters', () => {
+      it('should define metadata', () => {
+        testFixture('class-decorator-with-params');
+      });
+    });
   });
 
   describe('a non-decorated class', () => {
