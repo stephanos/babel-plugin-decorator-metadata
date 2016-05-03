@@ -1,0 +1,2 @@
+@Decorator()
+class MyClass {}
