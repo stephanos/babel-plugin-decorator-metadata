@@ -34,18 +34,22 @@ function defineDecoratorMetadata(t, classPath, kind, decorators, target) {
   );
 }
 
-function extractFieldsMetadata(t, classPath) {
-  const propertyPaths = [];
+function extractClassMemberMetadata(t, classPath) {
+  const members = [];
   classPath.traverse({
     ClassProperty(path) {
-      propertyPaths.push(path);
+      members.push({ path, kind: 'property' });
+    },
+    ClassMethod(path) {
+      members.push({ path, kind: 'method' });
     },
   });
 
-  propertyPaths.forEach((propertyPath) => {
-    const target = propertyPath.node.key.name;
-    const decorators = propertyPath.node.decorators;
-    defineDecoratorMetadata(t, classPath, 'field', decorators, target);
+  members.forEach((member) => {
+    const kind = member.kind;
+    const target = member.path.node.key.name;
+    const decorators = member.path.node.decorators;
+    defineDecoratorMetadata(t, classPath, kind, decorators, target);
   });
 }
 
@@ -63,7 +67,7 @@ export default function ({ types: t }) {
     visitor: {
       ClassDeclaration(path) {
         extractClassMetadata(t, path);
-        extractFieldsMetadata(t, path);
+        extractClassMemberMetadata(t, path);
       },
     },
   };
