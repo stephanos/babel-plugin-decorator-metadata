@@ -3,7 +3,7 @@ class MyClass {
   @Decorator2()
   field;
 }
-Reflect.defineMetadata("decorator:property", [{
+Reflect.defineMetadata("decorator", [{
   type: Decorator1,
   parameters: []
 }, {

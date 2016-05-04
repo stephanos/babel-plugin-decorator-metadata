@@ -89,6 +89,24 @@ describe('applying transformer to', () => {
     });
   });
 
+  describe('a class with a decorated accessor', () => {
+    describe('with a decorator', () => {
+      describe('without parameters', () => {
+        it('should define metadata', () => {
+          testFixture('accessor-decorator');
+        });
+      });
+    });
+
+    describe('with multiple decorators', () => {
+      describe('without parameters', () => {
+        it('should define metadata', () => {
+          testFixture('accessor-decorators');
+        });
+      });
+    });
+  });
+
   describe('a non-decorated class', () => {
     it('should not modify the input', () => {
       testFixture('non-decorated');

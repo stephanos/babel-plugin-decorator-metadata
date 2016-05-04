@@ -1,8 +1,8 @@
 class MyClass {
   @Decorator()
-  method() {}
+  get accessor() {}
 }
 Reflect.defineMetadata("decorator", [{
   type: Decorator,
   parameters: []
-}], MyClass, "method")
+}], MyClass, "accessor")

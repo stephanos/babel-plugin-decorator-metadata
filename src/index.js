@@ -1,4 +1,4 @@
-function defineDecoratorMetadata(t, classPath, kind, decorators, target) {
+function defineDecoratorMetadata(t, classPath, decorators, target) {
   const descriptors = [];
 
   decorators.forEach((decorator) => {
@@ -17,7 +17,7 @@ function defineDecoratorMetadata(t, classPath, kind, decorators, target) {
   });
 
   const reflectArgs = [
-    t.stringLiteral(`decorator:${kind}`),
+    t.stringLiteral('decorator'),
     t.arrayExpression(descriptors),
     classPath.node.id,
   ];
@@ -38,18 +38,17 @@ function extractClassMemberMetadata(t, classPath) {
   const members = [];
   classPath.traverse({
     ClassProperty(path) {
-      members.push({ path, kind: 'property' });
+      members.push(path);
     },
     ClassMethod(path) {
-      members.push({ path, kind: 'method' });
+      members.push(path);
     },
   });
 
   members.forEach((member) => {
-    const kind = member.kind;
-    const target = member.path.node.key.name;
-    const decorators = member.path.node.decorators;
-    defineDecoratorMetadata(t, classPath, kind, decorators, target);
+    const target = member.node.key.name;
+    const decorators = member.node.decorators;
+    defineDecoratorMetadata(t, classPath, decorators, target);
   });
 }
 
@@ -59,7 +58,7 @@ function extractClassMetadata(t, classPath) {
     return;
   }
 
-  defineDecoratorMetadata(t, classPath, 'class', decorators);
+  defineDecoratorMetadata(t, classPath, decorators);
 }
 
 export default function ({ types: t }) {
