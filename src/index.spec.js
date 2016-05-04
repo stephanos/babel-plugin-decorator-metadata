@@ -47,6 +47,30 @@ describe('applying transformer to', () => {
     });
   });
 
+  describe('a class with a decorated field', () => {
+    describe('with a decorator', () => {
+      describe('without parameters', () => {
+        it('should define metadata', () => {
+          testFixture('field-decorator');
+        });
+      });
+    });
+
+    describe('with multiple decorators', () => {
+      describe('without parameters', () => {
+        it('should define metadata', () => {
+          testFixture('field-decorators');
+        });
+      });
+
+      describe('with parameters', () => {
+        it('should define metadata', () => {
+          testFixture('field-decorators-with-params');
+        });
+      });
+    });
+  });
+
   describe('a non-decorated class', () => {
     it('should not modify the input', () => {
       testFixture('non-decorated');
