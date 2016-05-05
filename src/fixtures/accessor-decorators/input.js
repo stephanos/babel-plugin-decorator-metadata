@@ -3,3 +3,5 @@ class MyClass {
   @Decorator2()
   get accessor() {}
 }
+
+export default MyClass;

@@ -6,7 +6,6 @@ import { transform } from 'babel-core';
 
 
 const REQUIRED_PLUGINS = [
-  'babel-plugin-syntax-flow',
   'babel-plugin-syntax-decorators',
   'babel-plugin-syntax-class-properties',
 ];

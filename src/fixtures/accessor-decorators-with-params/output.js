@@ -3,6 +3,7 @@ class MyClass {
   @Decorator2('B', true)
   get accessor() {}
 }
+
 Reflect.defineMetadata('decorator', [{
   type: Decorator1,
   parameters: ['A', 42]
@@ -10,3 +11,4 @@ Reflect.defineMetadata('decorator', [{
   type: Decorator2,
   parameters: ['B', true]
 }], MyClass, 'accessor')
+export default MyClass;

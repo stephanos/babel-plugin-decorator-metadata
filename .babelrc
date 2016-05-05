@@ -1,6 +1,7 @@
 {
 	"presets": [ "es2015-node6" ],
 	"plugins": [
-		"babel-plugin-syntax-flow"
+		"babel-plugin-transform-decorators-legacy",
+		"babel-plugin-transform-class-properties",
 	]
 }

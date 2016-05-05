@@ -2,12 +2,12 @@ const del = require('del');
 const gulp = require('gulp');
 const path = require('path');
 
-const flow = require('gulp-flowtype');
 const gutil = require('gulp-util');
 const isparta = require('isparta');
 const gulpif = require('gulp-if');
 const babel = require('gulp-babel');
 const mocha = require('gulp-mocha');
+const rename = require('gulp-rename');
 const eslint = require('gulp-eslint');
 const espower = require('gulp-espower');
 const istanbul = require('gulp-istanbul');
@@ -37,19 +37,17 @@ gulp.task('copy', function () {
 });
 
 gulp.task('build', function () {
-  return gulp.src(['src/**/*.js', '!src/fixtures/**/*.js', '!src/*.spec.js'])
+  return gulp.src(['src/**/*.js', '!src/fixtures/**/input.js', '!src/*.spec.js'])
     .pipe(sourcemaps.init())
     .pipe(babel())
     .on('error', handleError)
+    .pipe(rename((path) => {
+      if (path.basename === 'output') {
+        path.extname = ".es6.js";
+      }
+    }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'));
-});
-
-gulp.task('typecheck', function() {
-  return gulp.src(['src/**/*.js', '!src/fixtures/**/input.js'])
-    .pipe(flow({
-      abort: !daemon,
-    }));
 });
 
 gulp.task('lint', function () {
@@ -108,7 +106,7 @@ gulp.task('_daemon', (done) => {
 
 
 gulp.task('package',
-  gulp.series('copy', 'build', 'lint', 'typecheck', 'unit-test', 'coveralls'));
+  gulp.series('copy', 'build', 'lint', 'unit-test', 'coveralls'));
 
 gulp.task('dev',
   gulp.series('_daemon', 'clean', 'package', 'watch'));

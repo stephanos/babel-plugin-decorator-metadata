@@ -3,6 +3,7 @@ class MyClass {
   @Decorator2('B', false)
   method() {}
 }
+
 Reflect.defineMetadata('decorator', [{
   type: Decorator1,
   parameters: ['A', 42]
@@ -10,3 +11,4 @@ Reflect.defineMetadata('decorator', [{
   type: Decorator2,
   parameters: ['B', false]
 }], MyClass, 'method')
+export default MyClass;

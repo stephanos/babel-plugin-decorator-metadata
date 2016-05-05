@@ -3,3 +3,5 @@ class MyClass {
   @Decorator2('B', false)
   field;
 }
+
+export default MyClass;
