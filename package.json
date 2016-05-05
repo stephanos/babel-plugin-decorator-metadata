@@ -2,7 +2,7 @@
   "name": "babel-plugin-decorator-metadata",
   "version": "0.1.0",
   "main": "dist/index.js",
-  "description": "Generate immutable, statically typed records",
+  "description": "Define decorator metadata",
   "keywords": [
     "decorator", "metadata", "reflect", "babel-plugin", "babel", "plugin"
   ],
