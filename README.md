@@ -77,5 +77,7 @@ And add the additional step to your `.babelrc`:
 }
 ```
 
-**Important:** Make sure to load the required polyfill (like [core-js](https://github.com/zloirock/core-js)) *before* you load any decorated
-class since they all require the global `Reflect` object.
+**Important:** Make sure to load the required polyfill
+(like `core-js/es7/reflect` from [core-js](https://github.com/zloirock/core-js))
+*before* you load any decorated class
+since they all require the global `Reflect` object.
