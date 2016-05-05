@@ -46,7 +46,7 @@ Reflect.defineMetadata('decorator', [{
 ```
 
 Since the reflection API is still just a proposal at this time,
-you'll need a polyfill like https://github.com/zloirock/core-js.
+you'll need a polyfill like [core-js](https://github.com/zloirock/core-js).
 
 Then you can query the metadata:
 
@@ -76,3 +76,6 @@ And add the additional step to your `.babelrc`:
   ]
 }
 ```
+
+**Important:** Make sure to load the required polyfill (like [core-js](https://github.com/zloirock/core-js)) *before* you load any decorated
+class since they all require the global `Reflect` object.
