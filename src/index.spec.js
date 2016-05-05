@@ -48,10 +48,16 @@ describe('applying transformer to', () => {
   });
 
   describe('a class with a decorated field', () => {
-    describe('with a decorator', () => {
+    describe('with a single decorator', () => {
       describe('without parameters', () => {
         it('should define metadata', () => {
           testFixture('field-decorator');
+        });
+      });
+
+      describe('with parameters', () => {
+        it('should define metadata', () => {
+          testFixture('field-decorator-with-params');
         });
       });
     });
@@ -72,10 +78,16 @@ describe('applying transformer to', () => {
   });
 
   describe('a class with a decorated method', () => {
-    describe('with a decorator', () => {
+    describe('with a single decorator', () => {
       describe('without parameters', () => {
         it('should define metadata', () => {
           testFixture('method-decorator');
+        });
+      });
+
+      describe('with parameters', () => {
+        it('should define metadata', () => {
+          testFixture('method-decorator-with-params');
         });
       });
     });
@@ -86,14 +98,26 @@ describe('applying transformer to', () => {
           testFixture('method-decorators');
         });
       });
+
+      describe('with parameters', () => {
+        it('should define metadata', () => {
+          testFixture('method-decorators-with-params');
+        });
+      });
     });
   });
 
   describe('a class with a decorated accessor', () => {
-    describe('with a decorator', () => {
+    describe('with a single decorator', () => {
       describe('without parameters', () => {
         it('should define metadata', () => {
           testFixture('accessor-decorator');
+        });
+      });
+
+      describe('with parameters', () => {
+        it('should define metadata', () => {
+          testFixture('accessor-decorator-with-params');
         });
       });
     });
@@ -102,6 +126,12 @@ describe('applying transformer to', () => {
       describe('without parameters', () => {
         it('should define metadata', () => {
           testFixture('accessor-decorators');
+        });
+      });
+
+      describe('with parameters', () => {
+        it('should define metadata', () => {
+          testFixture('accessor-decorators-with-params');
         });
       });
     });
