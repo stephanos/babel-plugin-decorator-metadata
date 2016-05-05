@@ -2,6 +2,7 @@
 
 import path from 'path';
 import assert from 'assert';
+import Reflect from 'core-js/es7/reflect';
 
 function load(dir) {
   return require(path.join(__dirname, 'fixtures', dir, 'output.es6.js'));
