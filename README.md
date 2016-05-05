@@ -4,7 +4,7 @@
 This plugin generates code to define
 [metadata](https://github.com/rbuckton/ReflectDecorators)
 for
-[decorator](https://github.com/wycats/javascript-decorators).
+[decorators](https://github.com/wycats/javascript-decorators).
 
 
 ## Usage
