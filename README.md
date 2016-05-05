@@ -51,8 +51,10 @@ you'll need a polyfill like https://github.com/zloirock/core-js.
 Then you can query the metadata:
 
 ```js
-const classMD = Reflect.getMetadata('decorator', MyClass); // { type: ClassDecorator, parameters: ['name'] }
-const methodMD = Reflect.getMetadata('decorator', MyClass, 'method'); // { type: MethodDecorator, parameters: [] }
+const classMD = Reflect.getMetadata('decorator', MyClass);
+  // { type: ClassDecorator, parameters: ['name'] }
+const methodMD = Reflect.getMetadata('decorator', MyClass, 'method');
+  // { type: MethodDecorator, parameters: [] }
 ```
 
 
