@@ -1,5 +1,7 @@
 @Decorator()
-class MyClass {}
+class MyClass {
+  id;
+}
 
 Reflect.defineMetadata("decorator", [{
   type: Decorator,

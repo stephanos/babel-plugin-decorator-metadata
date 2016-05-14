@@ -1,4 +1,6 @@
 @Decorator()
-class MyClass {}
+class MyClass {
+  id;
+}
 
 export default MyClass;

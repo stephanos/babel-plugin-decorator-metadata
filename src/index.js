@@ -48,17 +48,17 @@ function extractClassMemberMetadata(t, classPath) {
   members.forEach((member) => {
     const target = member.node.key.name;
     const decorators = member.node.decorators;
-    defineDecoratorMetadata(t, classPath, decorators, target);
+    if (decorators) {
+      defineDecoratorMetadata(t, classPath, decorators, target);
+    }
   });
 }
 
 function extractClassMetadata(t, classPath) {
   const decorators = classPath.node.decorators;
-  if (!decorators) {
-    return;
+  if (decorators) {
+    defineDecoratorMetadata(t, classPath, decorators);
   }
-
-  defineDecoratorMetadata(t, classPath, decorators);
 }
 
 export default function ({ types: t }) {
