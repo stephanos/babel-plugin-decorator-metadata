@@ -3,7 +3,10 @@ class MyClass {
   method() {}
 }
 
-Reflect.defineMetadata("decorated", ["method"], MyClass)
+Reflect.defineMetadata("decorated", [{
+  name: "method",
+  kind: "method"
+}], MyClass)
 Reflect.defineMetadata("decorator", [{
   type: Decorator,
   parameters: []

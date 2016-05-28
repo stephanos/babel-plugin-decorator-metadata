@@ -13,7 +13,13 @@ class MyClass {
   set accessor(val) {}
 }
 
-Reflect.defineMetadata("decorated", ["field", "method"], MyClass)
+Reflect.defineMetadata("decorated", [{
+  name: "field",
+  kind: "field"
+}, {
+  name: "method",
+  kind: "method"
+}], MyClass)
 Reflect.defineMetadata("decorator", [{
   type: Decorator,
   parameters: []

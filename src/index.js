@@ -45,7 +45,7 @@ function extractClassMemberMetadata(t, classPath) {
     },
   });
 
-  const decoratedTargets = [];
+  const decoratedTargets = {};
   members.forEach((member) => {
     if (member.node.kind === 'get' || member.node.kind === 'set') {
       return;
@@ -55,18 +55,27 @@ function extractClassMemberMetadata(t, classPath) {
     const decorators = member.node.decorators;
     if (decorators) {
       defineDecoratorMetadata(t, classPath, decorators, target);
-      decoratedTargets.push(target);
+      decoratedTargets[target] = member.node.kind || 'field';
     }
   });
 
-  if (decoratedTargets.length) {
+  if (Object.keys(decoratedTargets).length) {
     classPath.insertAfter(
       t.callExpression(
         t.memberExpression(
           t.identifier('Reflect'), t.identifier('defineMetadata')
         ), [
           t.stringLiteral('decorated'),
-          t.arrayExpression(decoratedTargets.map((d) => t.stringLiteral(d))),
+          t.arrayExpression(
+            Object.keys(decoratedTargets).map((key) =>
+              t.objectExpression([
+                t.objectProperty(t.identifier('name'),
+                  t.stringLiteral(key)),
+                t.objectProperty(t.identifier('kind'),
+                  t.stringLiteral(decoratedTargets[key])),
+              ])
+            )
+          ),
           classPath.node.id,
         ]
       )
