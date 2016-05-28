@@ -43,15 +43,4 @@ describe('query decorator metadata', () => {
       }]);
     });
   });
-
-  describe('of an accessor', () => {
-    it('should return metadata', () => {
-      const MyClass = load('accessor-decorator-with-params').default;
-
-      assert.deepEqual(Reflect.getOwnMetadata('decorator', MyClass, 'accessor'), [{
-        parameters: ['A', 42],
-        type: global.Decorator,
-      }]);
-    });
-  });
 });

@@ -81,3 +81,9 @@ And add the additional step to your `.babelrc`:
 (like `core-js/es7/reflect` from [core-js](https://github.com/zloirock/core-js))
 *before* you load any decorated class
 since they all require the global `Reflect` object.
+
+
+## Limitations
+
+The plugin will only add metadata for annotated classes, methods and fields;
+not for accessors.

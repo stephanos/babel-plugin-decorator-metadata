@@ -47,6 +47,10 @@ function extractClassMemberMetadata(t, classPath) {
 
   const decoratedTargets = [];
   members.forEach((member) => {
+    if (member.node.kind === 'get' || member.node.kind === 'set') {
+      return;
+    }
+
     const target = member.node.key.name;
     const decorators = member.node.decorators;
     if (decorators) {

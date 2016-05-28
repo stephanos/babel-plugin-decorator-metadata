@@ -106,37 +106,7 @@ describe('applying transformer to', () => {
     });
   });
 
-  describe('a class with a decorated accessor', () => {
-    describe('with a single decorator', () => {
-      describe('without parameters', () => {
-        it('should define metadata', () => {
-          testFixture('accessor-decorator');
-        });
-      });
-
-      describe('with parameters', () => {
-        it('should define metadata', () => {
-          testFixture('accessor-decorator-with-params');
-        });
-      });
-    });
-
-    describe('with multiple decorators', () => {
-      describe('without parameters', () => {
-        it('should define metadata', () => {
-          testFixture('accessor-decorators');
-        });
-      });
-
-      describe('with parameters', () => {
-        it('should define metadata', () => {
-          testFixture('accessor-decorators-with-params');
-        });
-      });
-    });
-  });
-
-  describe('a decorated class with decorated field, method and accessor', () => {
+  describe('a decorated class with decorated field and method', () => {
     it('should define metadata', () => {
       testFixture('all-decorated');
     });
