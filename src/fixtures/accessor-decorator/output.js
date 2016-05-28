@@ -3,6 +3,7 @@ class MyClass {
   get accessor() {}
 }
 
+Reflect.defineMetadata("decorated", ["accessor"], MyClass)
 Reflect.defineMetadata("decorator", [{
   type: Decorator,
   parameters: []

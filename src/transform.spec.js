@@ -136,6 +136,12 @@ describe('applying transformer to', () => {
     });
   });
 
+  describe('a decorated class with decorated field, method and accessor', () => {
+    it('should define metadata', () => {
+      testFixture('all-decorated');
+    });
+  });
+
   describe('a non-decorated class', () => {
     it('should not modify the input', () => {
       testFixture('non-decorated');

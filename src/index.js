@@ -45,13 +45,29 @@ function extractClassMemberMetadata(t, classPath) {
     },
   });
 
+  const decoratedTargets = [];
   members.forEach((member) => {
     const target = member.node.key.name;
     const decorators = member.node.decorators;
     if (decorators) {
       defineDecoratorMetadata(t, classPath, decorators, target);
+      decoratedTargets.push(target);
     }
   });
+
+  if (decoratedTargets.length) {
+    classPath.insertAfter(
+      t.callExpression(
+        t.memberExpression(
+          t.identifier('Reflect'), t.identifier('defineMetadata')
+        ), [
+          t.stringLiteral('decorated'),
+          t.arrayExpression(decoratedTargets.map((d) => t.stringLiteral(d))),
+          classPath.node.id,
+        ]
+      )
+    );
+  }
 }
 
 function extractClassMetadata(t, classPath) {

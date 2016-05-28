@@ -4,6 +4,7 @@ class MyClass {
   get accessor() {}
 }
 
+Reflect.defineMetadata('decorated', ['accessor'], MyClass)
 Reflect.defineMetadata('decorator', [{
   type: Decorator1,
   parameters: ['A', 42]
