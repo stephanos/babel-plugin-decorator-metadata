@@ -31,6 +31,7 @@ class MyClass {
    /* ... */
 }
 
+Reflect.defineMetadata('decorated', ['field', 'method'], MyClass);
 Reflect.defineMetadata('decorator', [{
   type: ClassDecorator,
   parameters: ['name']
