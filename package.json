@@ -26,7 +26,7 @@
     "babel-preset-es2015-node6": "^0.2.0",
     "core-js": "^2.4.0",
     "del": "^2.2.0",
-    "eslint": "^2.10.2",
+    "eslint": "^3.0.0",
     "eslint-config-airbnb-base": "^3.0.1",
     "eslint-plugin-import": "^1.8.0",
     "gulp": "git://github.com/gulpjs/gulp.git#4.0",
