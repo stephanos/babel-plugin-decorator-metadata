@@ -27,7 +27,7 @@
     "core-js": "^2.4.0",
     "del": "^2.2.1",
     "eslint": "^3.0.0",
-    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-config-airbnb-base": "^4.0.0",
     "eslint-plugin-import": "^1.10.0",
     "gulp": "git://github.com/gulpjs/gulp.git#4.0",
     "gulp-babel": "^6.1.2",
